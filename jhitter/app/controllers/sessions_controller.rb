@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.clear
+    session.destroy
     flash.now[:logout] = "goodbye"
-    redirect_to login_path
+    redirect_to root_path
   end
 end
