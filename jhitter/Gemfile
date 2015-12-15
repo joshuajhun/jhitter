@@ -27,6 +27,7 @@ gem 'twitter'
 gem 'minitest-emoji'
 gem 'pry'
 gem "omniauth-twitter"
+gem 'figaro'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
