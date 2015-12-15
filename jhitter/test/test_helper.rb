@@ -17,8 +17,6 @@ class ActiveSupport::TestCase
 
   def stub_omniauth
     OmniAuth.config.test_mode = true
-    # then, provide a set of fake oauth data that
-    # omniauth will use when a user tries to authenticate:
     OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
       provider: 'twitter',
       extra: {
