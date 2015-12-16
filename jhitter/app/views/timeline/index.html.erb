@@ -1,0 +1,20 @@
+
+
+<%= link_to "New Tweet",new_timeline_path %>
+<%if current_user %>
+<p>hello, <%= current_user.name %></p>
+<%= link_to "logout", logout_path %>
+<%else %>
+<%= link_to "login", login_path %>
+<%end %>
+
+
+
+<div class="list-group col-sm-9 col-md-4-offset-3" id="timeline">
+  <ul >
+    <%@tweets.each do |tweet| %>
+    <li class="list-group-item"> <%=image_tag(tweet.user.profile_image_url.to_s,class:"img-rounded") %> <%= tweet.user.name %> @<%=tweet.user.screen_name %> * <%=time = ((Time.now - tweet.created_at) / 3600).round %>h
+      <br><%= link_to tweet.text, timeline_path(tweet.id) %></li>
+    <%end%>
+  </ul>
+</div>

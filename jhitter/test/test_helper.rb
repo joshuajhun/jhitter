@@ -4,11 +4,18 @@ require 'rails/test_help'
 require 'minitest/emoji'
 require 'capybara/rails'
 require 'pry'
+require 'webmock'
+require 'vcr'
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
   include Capybara::DSL
+
+  VCR.configure do |config|
+    config.cassette_library_dir = 'test/cassettes'
+    config.hook_into :webmock
+  end
 
   def setup
     Capybara.app = Jhitter::Application
