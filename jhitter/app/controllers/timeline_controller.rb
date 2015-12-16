@@ -1,10 +1,10 @@
 class TimelineController < ApplicationController
   def index
-    @tweets = TwitterTimeline.all
+    @tweets = TwitterTimeline.all(current_user)
   end
 
   def show
-    @tweet = TwitterTimeline.find(params[:id])
+    @tweet = TwitterTimeline.find(params[:id], current_user)
   end
 
   def new

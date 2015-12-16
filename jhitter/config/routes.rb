@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "timeline#index"
+  root to: "home_screen#login"
   resources :timeline, only: [:index,:show,:new,:create]
   get "/auth/twitter", as: :login
   get "/auth/twitter/callback", to: "sessions#create"

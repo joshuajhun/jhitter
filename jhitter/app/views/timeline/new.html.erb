@@ -1,5 +1,5 @@
 <%= form_tag timeline_index_path, method: :post do %>
-<%= label_tag "new tweet" %>
-<%= text_field_tag "" %>
-<%= submit_tag "Submit" %>
-<%end%>
+ <%= label_tag "message" %>
+ <%= text_field_tag "message[tweet]" %>
+ <%= submit_tag "Submit" %>
+<% end %>
