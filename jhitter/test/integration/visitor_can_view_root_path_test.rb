@@ -5,7 +5,7 @@ class VisitorCanViewRootPathTest < ActionDispatch::IntegrationTest
     visit root_path
     click_link "login"
     assert_equal timeline_index_path, current_path
-    assert page.has_content?("Welcome to Jhitter")
-    assert page.has_content?("login")
+    assert page.has_content?("logout")
+    assert page.has_content?("new tweet")
   end
 end

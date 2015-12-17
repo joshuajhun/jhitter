@@ -11,7 +11,6 @@ require  'SimpleCov'
 SimpleCov.start
 
 class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
   include Capybara::DSL
 
@@ -29,18 +28,27 @@ class ActiveSupport::TestCase
   def stub_omniauth
     OmniAuth.config.test_mode = true
     OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
-      uid: "4580803393",
       provider: 'twitter',
+           uid: "4580803393",
+      info: {
+        image: "http://pbs.twimg.com/profile_images/677325779164749824/7g1VMEbu_normal.jpg",
+        location: ""
+      },
       extra: {
         raw_info: {
-          user_id: "1234",
           name: "jhitter",
           screen_name: "jhittertweets",
+          description: "",
+          profile_banner_url: nil,
+          followers_count: 0,
+          friends_count: 0,
+          favourites_count: 0,
+          statuses_count: 1
         }
       },
       credentials: {
-        token: "4580803393-g1ckhlOgOIySt9vCzR6IgcCLU7wghvzOfJgHSoX",
-        secret: "qgRKEoS1RcgOK4yfZscjXdKIJ3Q6hHzohdyIt85EEL1UB"
+        token: ENV["twitter_test_key"],
+        secret:ENV["twitter_test_secret"]
       }
     })
   end
