@@ -3,41 +3,41 @@
   <%= image_tag(current_user.background_picture,class: "img-responsive" )%>
 </div>
 <nav class="navbar nav">
-<ul class="nav nav-pills nav-justified">
-  <li>Tweets: <%=current_user.tweet_count%> </li>
-  <li>Following: <%=current_user.following %></li>
-  <li>Followers: <%=current_user.followers  %> </li>
-  <li>Likes: <%=current_user.likes%> </li>
-</ul>
+  <ul class="nav nav-pills nav-justified">
+    <li>Tweets: <%=current_user.tweet_count%> </li>
+    <li>Following: <%=current_user.following %></li>
+    <li>Followers: <%=current_user.followers  %> </li>
+    <li>Likes: <%=current_user.likes%> </li>
+  </ul>
 </nav>
 <div class="well">
   <div class="row">
     <div class="col-md-4">
       <div class="well">
         <div class="prof-pic">
-        <img src="<%=current_user.profile_picture%>"alt="profile"/>
-      </div>
-          <h4><%= current_user.name %></h4>
-          @<%= current_user.screen_name %>
-          <br>
-          <%=current_user.description%>
-          <br>
-          <%= current_user.location %>
-        </ul>
-      </div>
+          <img src="<%=current_user.profile_picture%>"alt="profile"/>
+        </div>
+        <h4><%= current_user.name %></h4>
+        @<%= current_user.screen_name %>
+        <br>
+        <%=current_user.description%>
+        <br>
+        <%= current_user.location %>
+      </ul>
     </div>
-<div class="col-md-8" id="timeline">
-  <ul >
-    <%@tweets.each do |tweet| %>
-    <li class="list-group-item"> <%=image_tag(tweet.user.profile_image_url.to_s, class:"img-rounded") %>
-      <br>
-      <%= tweet.user.name %> @<%=tweet.user.screen_name %> * <%=distance_of_time_in_words_to_now(tweet.created_at)%> ago  Favorite Count: <%= tweet.favorite_count %> <%= link_to "Favorite Tweet",favorite_path(tweet.id), method: :patch %>
-      <br><%= link_to tweet.text, timeline_path(tweet.id) %></li>
-    <%end%>
-  </ul>
-</div>
-<%else %>
-<div class="container grey">
-  <h1>Welcome Jhitter</h1>
-<%end %>
-</div>
+  </div>
+  <div class="col-md-8" id="timeline">
+    <ul >
+      <%@tweets.each do |tweet| %>
+      <li class="list-group-item"> <%=image_tag(tweet.user.profile_image_url.to_s, class:"img-rounded") %>
+        <br>
+        <%= tweet.user.name %> @<%=tweet.user.screen_name %> * <%=distance_of_time_in_words_to_now(tweet.created_at)%> ago  Favorite Count: <%= tweet.favorite_count %> <%= link_to "Favorite Tweet",favorite_path(tweet.id), method: :patch %>
+        <br><%= link_to tweet.text, timeline_path(tweet.id) %></li>
+        <%end%>
+      </ul>
+    </div>
+    <%else %>
+    <div class="container grey">
+      <h1>Welcome Jhitter</h1>
+      <%end %>
+    </div>

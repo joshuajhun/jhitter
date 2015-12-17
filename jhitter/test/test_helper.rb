@@ -11,7 +11,6 @@ require  'SimpleCov'
 SimpleCov.start
 
 class ActiveSupport::TestCase
-  fixtures :all
   include Capybara::DSL
 
   VCR.configure do |config|
