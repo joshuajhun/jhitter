@@ -16,10 +16,19 @@ class TwitterApi
   end
 
   def tweet(id)
+    binding.pry
     connection.status(id)
   end
 
-  def new_tweet(status)
-    connection.update(status)
+  def new_tweet(message)
+    connection.update(message)
+  end
+
+  def fav_tweet(tweet)
+    connection.favorite(tweet)
+  end
+
+  def fav_count_tweet
+    connection.favorite_count
   end
 end

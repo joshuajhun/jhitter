@@ -8,11 +8,19 @@ class TwitterTimeline
     service(user).tweets
   end
 
-  def self.find(id, user)
+  def self.find(user, id)
     service(user).tweet(id)
   end
 
-  def self.create(status, user)
-    service(user).new_tweet(status)
+  def self.create(message, user)
+    service(user).new_tweet(message)
+  end
+
+  def self.favor(tweet, user)
+    service(user).fav_tweet(tweet)
+  end
+
+  def self.favor_count(user)
+    service(user).fav_count_tweet
   end
 end

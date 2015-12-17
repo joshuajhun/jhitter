@@ -11,7 +11,7 @@
 <div class="list-group col-sm-9 col-md-4-offset-3" id="timeline">
   <ul >
     <%@tweets.each do |tweet| %>
-    <li class="list-group-item"> <%=image_tag(tweet.user.profile_image_url.to_s,class:"img-rounded") %> <%= tweet.user.name %> @<%=tweet.user.screen_name %> * <%=time = ((Time.now - tweet.created_at) / 3600).round %>h
+    <li class="list-group-item"> <%=image_tag(tweet.user.profile_image_url.to_s,class:"img-rounded") %> <%= tweet.user.name %> @<%=tweet.user.screen_name %> * <%=distance_of_time_in_words_to_now(tweet.created_at)%> ago  Favorite Count: <%= tweet.favorite_count %> <%= link_to "Favorite Tweet",favorite_path(tweet.id), method: :patch %>
       <br><%= link_to tweet.text, timeline_path(tweet.id) %></li>
     <%end%>
   </ul>

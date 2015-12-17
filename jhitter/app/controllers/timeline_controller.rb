@@ -11,7 +11,7 @@ class TimelineController < ApplicationController
   end
 
   def create
-    @tweet = TwitterTimeline.create(params[:status])
-    redirect_to root_path
+    @tweet = TwitterTimeline.create(params[:message][:tweet], current_user)
+    redirect_to timeline_index_path
   end
 end
