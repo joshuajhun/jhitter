@@ -32,4 +32,9 @@ class TwitterApi
   def fav_count_tweet
     connection.favorite_count
   end
+
+  def followers_count
+    connection.followers
+  end
+
 end
