@@ -2,7 +2,6 @@ class TwitterApi
   attr_reader :connection
 
   def initialize(user)
-
     @user = user
     @connection = Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV["twitter_api_key"]
